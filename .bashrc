@@ -108,8 +108,6 @@ fi
 
 
 neofetch
-alias config='/usr/bin/git --git-dir=/home/dan/.cfg/ --work-tree=/home/dan'
-
 
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
@@ -117,4 +115,5 @@ if [ -f `which powerline-daemon` ]; then
   POWERLINE_BASH_SELECT=1
   . /usr/share/powerline/bindings/bash/powerline.sh
 fi
+
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
