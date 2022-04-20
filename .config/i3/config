@@ -174,12 +174,13 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-# window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #550055 #550055 #ffffff #2e9ef4   #811996
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #5d6d6c #222222 #888888 #292d2e   #2c272d
+client.urgent           #555555 #555555 #ffffff #900000   #ff6363
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -223,7 +224,7 @@ exec xmodmap -e "clear lock" #disable caps lock switch
 exec xmodmap -e "keysym Caps_Lock = Escape" # set caps_lock as escape
 
 
-exec_always feh bg-fill /home/dan/Pictures/viewLong.webp --bg-fill /home/dan/Pictures/astronaut.webp
+exec_always feh bg-fill /home/dan/Pictures/future.jpg --bg-fill /home/dan/Pictures/future.jpg
 
 # assign workspaces to monitors
 workspace $ws1 output DP-3
@@ -237,3 +238,30 @@ for_window [class="^Spotify$"] move to workspace $ws9 #Spotify
 # start on startup
 
 exec --no-startup-id spotify
+
+
+# gaps
+# disable window titlebars
+for_window [class="^.*"] border pixel 2
+gaps inner 15
+gaps outer 10
+gaps top 30
+gaps right 0
+gaps bottom 0
+gaps left 0
+#smart_gaps on
+smart_borders on
+
+bindsym $mod+Shift+g gaps inner all set 6; gaps outer all set 2
+bindsym $mod+Shift+n gaps inner all set 0; gaps outer all set 0
+
+# Only enable gaps on a workspace when there is at least one container
+
+# Activate smart borders (always)
+#smart_borders on
+
+# Activate smart borders (only when there are effectively no gaps)
+#smart_borders no_gaps
+
+# Hide edge borders only if there is one window with no gaps
+hide_edge_borders smart_no_gaps
