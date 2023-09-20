@@ -29,10 +29,3 @@ chezmoi git add .
 chezmoi git -- commit -m "Add .gitconfig"
 chezmoi push
 ```
-
-
-Tmux
-
-neovim
-
-zsh, oh-my-zsh
