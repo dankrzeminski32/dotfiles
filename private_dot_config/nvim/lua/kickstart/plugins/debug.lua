@@ -54,6 +54,13 @@ return {
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })
 
+    table.insert(dap.configurations.python, {
+	      type = 'python',
+	request = 'launch',
+	  name = 'Flask',
+	  module="flask",
+	    args = {"run"}
+	      })
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup {
