@@ -55,12 +55,12 @@ return {
     end, { desc = 'Debug: Set Breakpoint' })
 
     table.insert(dap.configurations.python, {
-	      type = 'python',
-	request = 'launch',
-	  name = 'Flask',
-	  module="flask",
-	    args = {"run"}
-	      })
+      type = 'python',
+      request = 'launch',
+      name = 'Flask',
+      module = "flask",
+      args = { "run" }
+    })
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup {
@@ -93,5 +93,9 @@ return {
     -- Install golang specific config
     require('dap-go').setup()
     require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+    vim.keymap.set('n', '<Leader>dtm', "<cmd> :lua require('dap-python').test_method()<CR>",
+      { desc = 'Debug: Test Method Above Cursor.' })
+    vim.keymap.set('n', '<Leader>dtc', "<cmd> :lua require('dap-python').test_class()<CR>",
+      { desc = 'Debug: Test Class Above Cursor.' })
   end,
 }
